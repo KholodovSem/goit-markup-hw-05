@@ -54,7 +54,7 @@
       <section class="hero-section section">
         <div class="container hero">
           <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-          <button type="button" class="button">Заказать услугу</button>
+          <button type="button" class="button" data-modal-open>Заказать услугу</button>
         </div>
       </section>
       <section class="benefits section">
@@ -116,22 +116,31 @@
         <div class="container">
           <h2 class="title second">Чем мы занимаемся</h2>
           <ul class="list services">
-            <li>
-              <img src="./images/img1.jpg" alt="Человек кодит" width="370px" />
+            <li class="about_item">
+              <div class="backdrop-image">
+                <p class="backdrop-text">Десктопные приложения</p>
+              <img src="./images/img1.jpg" alt="Человек кодит" width="370px"  class="no-gap"/>
+              </div>
             </li>
-            <li>
+            <li class="about_item">
+              <div class="backdrop-image">
+                <p class="backdrop-text">Мобильные приложения</p>
               <img
                 src="./images/img2.jpg"
                 alt="Человек за телефоном"
                 width="370px"
-              />
+              class="no-gap"/>
+              </div>
             </li>
-            <li>
+            <li class="about_item">
+              <div class="backdrop-image">
+                <p class="backdrop-text">Дизайнерские решения</p>
               <img
                 src="./images/img3.jpg"
                 alt="Человек с графическим планшетом"
                 width="370px"
-              />
+              class="no-gap"/>
+              </div>
             </li>
           </ul>
         </div>
@@ -422,5 +431,17 @@
         </div>
       </div>
     </footer>
+    <!-- Modal window -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="modal-button" data-modal-close>
+          <svg width="11" height="11" class="close-icon">
+            <use href="./images/SVG/symbol-defs.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- JS -->
+    <script src="./js/modal.js"></script>
   </body>
 </html>
