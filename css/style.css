@@ -747,7 +747,8 @@ a {
     transform 250ms var(--default-timing-function);
 }
 
-.portfolio-box-shadow:hover .backdrop-text.portfolio {
+.portfolio-box-shadow:hover .backdrop-text.portfolio,
+.portfolio-box-shadow:focus .backdrop-text.portfolio {
   opacity: 1;
   transform: translate(-50%, -50%);
 }
