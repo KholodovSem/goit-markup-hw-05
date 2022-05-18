@@ -42,6 +42,10 @@ a {
   pointer-events: none;
 }
 
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
 .backdrop {
   position: fixed;
 
@@ -51,13 +55,17 @@ a {
   height: 100%;
 
   background-color: var(--backdrop-modal-window-color);
+
+  transition: opacity 250ms var(--default-timing-function);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: scale 250ms var(--default-timing-function);
 
   min-width: 528px;
   min-height: 581px;
@@ -182,6 +190,7 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
+  transform: translateY(2px);
 
   width: 100%;
   height: 4px;
