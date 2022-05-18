@@ -16,6 +16,7 @@
   --modal-window-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   --portdolio-backdrop-image: rgba(33, 150, 243, 0.9);
+  --default-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -165,6 +166,8 @@ a {
   position: relative;
 
   color: var(--h2-color);
+
+  transition: color 250ms var(--default-timing-function);
 }
 
 .link:hover,
@@ -174,12 +177,17 @@ a {
 
 .active::after {
   content: "";
-  border-bottom: 4px solid var(--blue);
-  border-radius: 2px;
-  display: block;
+  display: inline-block;
+
   position: absolute;
-  width: 100%;
   bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--blue);
+  border-radius: 2px;
 }
 
 .link.active {
@@ -194,6 +202,8 @@ a {
   font-style: normal;
 
   color: var(--main-text-color);
+
+  transition: color 250ms var(--default-timing-function);
 }
 
 .adress:hover,
@@ -349,6 +359,7 @@ a {
 
 .backdrop-image {
   position: relative;
+  overflow: hidden;
 }
 
 .backdrop-image::before {
@@ -428,11 +439,16 @@ a {
   justify-content: center;
   align-items: center;
   margin-top: 16px;
+
+  border-radius: 50%;
+
+  transition: color 250ms var(--default-timing-function),
+    background-color 250ms var(--default-timing-function);
 }
 
-.team-list-link:hover {
+.team-list-link:hover,
+.team-list-link:focus {
   color: var(--hero-title-color);
-  border-radius: 50%;
   background-color: var(--blue);
 }
 
@@ -475,21 +491,24 @@ a {
 
   border: 1px solid var(--company-border-color);
   border-radius: var(--clients-border-radius);
+  transition: border 250ms var(--default-timing-function);
 }
 
 .clients-list-link {
   display: inline-block;
   padding: 16px 32px;
   color: #afb1b8;
+  transition: color 250ms var(--default-timing-function);
 }
 
-.clients-list-link:hover {
+.clients-list-link:hover,
+.clients-list-link:focus {
   color: var(--blue);
 }
 
-.clients-list-item:hover {
+.clients-list-item:hover,
+.clietns-list-item:focus {
   border: 1px solid var(--blue);
-  border-radius: var(--clients-border-radius);
 }
 
 .client-one,
@@ -527,14 +546,15 @@ a {
   line-height: 1.714;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+  transition: color 250ms var(--default-timing-function);
 }
 
 .footer-adress {
   font-size: 14px;
   line-height: 1.714;
   letter-spacing: 0.03em;
-
   color: var(--hero-title-color);
+  transition: color 250ms var(--default-timing-function);
 }
 
 .footer-adress:hover,
@@ -612,6 +632,13 @@ a {
   padding: 20px 24px;
 }
 
+.portfolio-box-shadow {
+  border: none;
+  box-shadow: none;
+  transition: border 250ms var(--default-timing-function),
+    box-shadow 250ms var(--default-timing-function);
+}
+
 .portfolio-box-shadow:hover,
 .portfolio-box-shadow:focus {
   border: 1px solid var(--portfolio-border-color);
@@ -657,6 +684,9 @@ a {
 
   border: 0;
   cursor: pointer;
+  transition: color 250ms var(--default-timing-function),
+    background-color 250ms var(--default-timing-function),
+    box-shadow 250ms var(--default-timing-function);
 }
 
 .portfolio-btn:hover,
@@ -678,24 +708,33 @@ a {
 }
 
 .backdrop-image.portfolio::before {
+  position: absolute;
+
   opacity: 0;
 
   height: 100%;
 
   background-color: var(--portdolio-backdrop-image);
+
+  transform: translateY(100%);
+  transition: opacity 250ms var(--default-timing-function),
+    transform 250ms var(--default-timing-function);
 }
 
 .portfolio-box-shadow:hover .backdrop-image.portfolio::before {
   opacity: 1;
+  transform: translateY(0%);
 }
 
 .backdrop-text.portfolio {
+  position: absolute;
+
   opacity: 0;
 
   top: 50%;
   left: 50%;
   bottom: unset;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 100%);
 
   min-width: 322px;
 
@@ -704,8 +743,11 @@ a {
   line-height: 1.56;
   letter-spacing: 0.03em;
   text-transform: none;
+  transition: opacity 250ms var(--default-timing-function),
+    transform 250ms var(--default-timing-function);
 }
 
 .portfolio-box-shadow:hover .backdrop-text.portfolio {
   opacity: 1;
+  transform: translate(-50%, -50%);
 }
